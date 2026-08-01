@@ -216,10 +216,13 @@
   .rank-1 { background: linear-gradient(90deg, rgba(255,215,0,0.22), rgba(255,215,0,0.05)); }
   .rank-2 { background: linear-gradient(90deg, rgba(192,192,192,0.18), rgba(192,192,192,0.04)); }
   .rank-3 { background: linear-gradient(90deg, rgba(205,127,50,0.18), rgba(205,127,50,0.04)); }
+  .rank-4 { background: linear-gradient(90deg, rgba(205,127,50,0.14), rgba(205,127,50,0.03)); }
+  .rank-5, .rank-6, .rank-7, .rank-8 { background: linear-gradient(90deg, rgba(100,150,255,0.10), rgba(100,150,255,0.02)); }
 
   .rank-1 td { border-bottom-color: rgba(255,215,0,0.4); }
   .rank-2 td { border-bottom-color: rgba(192,192,192,0.4); }
-  .rank-3 td { border-bottom-color: rgba(205,127,50,0.4); }
+  .rank-3 td, .rank-4 td { border-bottom-color: rgba(205,127,50,0.4); }
+  .rank-5 td, .rank-6 td, .rank-7 td, .rank-8 td { border-bottom-color: rgba(100,150,255,0.25); }
 
   td.rank {
     font-size: 1.3rem;
@@ -240,6 +243,16 @@
     color: #9db8dd;
     font-size: 0.95rem;
   }
+
+  .prize {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .prize-1 { color: #ffd700; }
+  .prize-2 { color: #c0c0c0; }
+  .prize-3 { color: #cd853f; }
+  .prize-4 { color: #7fb3ff; }
 
   td.score-mini {
     color: #cddcf1;
@@ -331,6 +344,7 @@
             <th>Lượt 3</th>
             <th>Điểm cao nhất</th>
             <th>Tổng điểm</th>
+            <th>Giải thưởng</th>
           </tr>
         </thead>
         <tbody id="rank-body">
@@ -343,6 +357,9 @@
   <p class="note">
     💾 Điểm được <span>tự động lưu</span> trong trình duyệt — tải lại trang không mất dữ liệu.
     Đội hòa điểm cao nhất sẽ được so sánh thêm <b>tổng điểm 3 lượt</b> để phân hạng.
+  </p>
+  <p class="note">
+    🏆 Cơ cấu giải thưởng: <span>1 Giải Nhất - 1 Giải Nhì - 2 Giải Ba - 4 Giải Khuyến Khích</span>
   </p>
 
 </div>
@@ -491,7 +508,7 @@
     if (!anyScore) {
       const tr = document.createElement("tr");
       const td = document.createElement("td");
-      td.colSpan = 7;
+      td.colSpan = 8;
       td.className = "empty-hint";
       td.textContent = "Chưa có điểm — hãy nhập điểm ở bảng trên để xếp hạng 🚀";
       tr.appendChild(td);
@@ -504,7 +521,17 @@
       tr.className = "rank-row";
 
       const placeClass = "rank-" + (position + 1);
-      if (position < 3) tr.classList.add(placeClass);
+      if (position < 4) tr.classList.add(placeClass);
+
+      // Cơ cấu giải thưởng: 1 Nhất, 1 Nhì, 2 Ba, 4 Khuyến khích
+      const prize = position === 0 ? "Giải Nhất"
+                  : position === 1 ? "Giải Nhì"
+                  : position < 4 ? "Giải Ba"
+                  : "Giải Khuyến Khích";
+      const prizeClass = position === 0 ? "prize-1"
+                       : position === 1 ? "prize-2"
+                       : position < 4 ? "prize-3"
+                       : "prize-4";
 
       const tdRank = document.createElement("td");
       tdRank.className = "rank";
@@ -533,6 +560,11 @@
       tdTotal.className = "total-score";
       tdTotal.textContent = team.total;
       tr.appendChild(tdTotal);
+
+      const tdPrize = document.createElement("td");
+      tdPrize.className = "prize " + prizeClass;
+      tdPrize.textContent = prize;
+      tr.appendChild(tdPrize);
 
       tbody.appendChild(tr);
     });
