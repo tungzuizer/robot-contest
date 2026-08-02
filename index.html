@@ -293,8 +293,8 @@
 <div class="container">
 
   <header>
-    <h1>🤖 CUỘC THI ROBOT</h1>
-    <p>Nhập điểm đấu trường | Mỗi đội thi đấu <b>3 lượt</b> — Điểm xếp hạng = <b>điểm cao nhất</b></p>
+    <h1>🤖 CUỘC THI ROBOTICS DBC </h1>
+    
   </header>
 
   <!-- ===== BẢNG NHẬP ĐIỂM ===== -->
@@ -321,10 +321,6 @@
       </table>
     </div>
 
-    <div class="actions">
-      <button class="btn btn-example" id="btn-example" type="button">🎲 Điền điểm mẫu</button>
-      <button class="btn btn-reset" id="btn-reset" type="button">🗑️ Xóa tất cả điểm</button>
-    </div>
   </section>
 
   <!-- ===== BẢNG XẾP HẠNG ===== -->
@@ -354,10 +350,7 @@
     </div>
   </section>
 
-  <p class="note">
-    💾 Điểm được <span>tự động lưu</span> trong trình duyệt — tải lại trang không mất dữ liệu.
-    Đội hòa điểm cao nhất sẽ được so sánh thêm <b>tổng điểm 3 lượt</b> để phân hạng.
-  </p>
+  
   <p class="note">
     🏆 Cơ cấu giải thưởng: <span>1 Giải Nhất - 1 Giải Nhì - 2 Giải Ba - 4 Giải Khuyến Khích</span>
   </p>
@@ -599,45 +592,9 @@
     bestCell.textContent = best >= 0 ? best : "—";
   }
 
-  // ===== Reset =====
-  function resetAll() {
-    if (confirm("Bạn có chắc muốn xóa TẤT CẢ điểm đã nhập không?")) {
-      scores = createEmptyScores();
-      saveToStorage();
-      renderAll();
-    }
-  }
-
-  // ===== Điền điểm mẫu (để kiểm tra) =====
-  function fillExample() {
-    const example = [
-      [85, 92, 88],   // Đội 1
-      [90, 95, 91],   // Đội 2
-      [78, 82, 95],   // Đội 3
-      [88, 88, 90],   // Đội 4
-      [95, 80, 76],   // Đội 5
-      [70, 75, 72],   // Đội 6
-      [99, 60, 65],   // Đội 7
-      [50, 55, 60]    // Đội 8
-    ];
-    if (confirm("Điền điểm mẫu để thử nghiệm? (Thao tác này sẽ GHI ĐÈ lên điểm hiện tại)")) {
-      scores = createEmptyScores();
-      for (let i = 0; i < TEAM_NAMES.length; i++) {
-        for (let r = 0; r < NUM_ROUNDS; r++) {
-          scores[i][r] = example[i][r];
-        }
-      }
-      saveToStorage();
-      renderAll();
-    }
-  }
-
   // ===== Khởi tạo =====
   scores = loadFromStorage();
   renderAll();
-
-  document.getElementById("btn-reset").addEventListener("click", resetAll);
-  document.getElementById("btn-example").addEventListener("click", fillExample);
 </script>
 
 </body>
