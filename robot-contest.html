@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuộc Thi Robot - Nhập Điểm & Xếp Hạng</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1e3a 0%, #1a3a6b 50%, #0b1e3a 100%);
+    min-height: 100vh;
+    color: #e8eef7;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== Header ===== */
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: "🤖";
+    font-size: 90px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.15;
+  }
+
+  header::after {
+    content: "⚙️";
+    font-size: 70px;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.12;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    color: #ffb347;
+    text-shadow: 0 2px 10px rgba(255,179,71,0.4);
+    margin-bottom: 8px;
+  }
+
+  header p {
+    color: #a8c3e8;
+    font-size: 1rem;
+  }
+
+  /* ===== Section titles ===== */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ffb347;
+    color: #ffb347;
+  }
+
+  .section-title .icon {
+    font-size: 1.5rem;
+  }
+
+  /* ===== Score input table ===== */
+  .card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  th, td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  th {
+    background: rgba(255,179,71,0.15);
+    color: #ffd699;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+
+  th:first-child, td:first-child {
+    text-align: left;
+  }
+
+  td {
+    font-size: 1rem;
+  }
+
+  td.team-name {
+    font-weight: 600;
+    color: #e8eef7;
+    white-space: nowrap;
+  }
+
+  input.score-input {
+    width: 90px;
+    max-width: 100%;
+    padding: 9px 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  input.score-input:focus {
+    border-color: #ffb347;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 3px rgba(255,179,71,0.25);
+  }
+
+  input.score-input::placeholder {
+    color: rgba(255,255,255,0.45);
+  }
+
+  input.score-input:invalid {
+    border-color: #ff6b6b;
+  }
+
+  /* ===== Action buttons ===== */
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .btn {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-reset {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+  }
+
+  .btn-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(231,76,60,0.45);
+  }
+
+  .btn-example {
+    background: linear-gradient(135deg, #2980b9, #1f618d);
+    color: #fff;
+  }
+
+  .btn-example:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(41,128,185,0.45);
+  }
+
+  /* ===== Ranking table ===== */
+  .rank-row {
+    transition: background 0.2s;
+  }
+
+  .rank-row:hover {
+    background: rgba(255,255,255,0.05);
+  }
+
+  .rank-1 { background: linear-gradient(90deg, rgba(255,215,0,0.22), rgba(255,215,0,0.05)); }
+  .rank-2 { background: linear-gradient(90deg, rgba(192,192,192,0.18), rgba(192,192,192,0.04)); }
+  .rank-3 { background: linear-gradient(90deg, rgba(205,127,50,0.18), rgba(205,127,50,0.04)); }
+  .rank-4 { background: linear-gradient(90deg, rgba(205,127,50,0.14), rgba(205,127,50,0.03)); }
+  .rank-5, .rank-6, .rank-7, .rank-8 { background: linear-gradient(90deg, rgba(100,150,255,0.10), rgba(100,150,255,0.02)); }
+
+  .rank-1 td { border-bottom-color: rgba(255,215,0,0.4); }
+  .rank-2 td { border-bottom-color: rgba(192,192,192,0.4); }
+  .rank-3 td, .rank-4 td { border-bottom-color: rgba(205,127,50,0.4); }
+  .rank-5 td, .rank-6 td, .rank-7 td, .rank-8 td { border-bottom-color: rgba(100,150,255,0.25); }
+
+  td.rank {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  .medal {
+    font-size: 1.4rem;
+  }
+
+  .best-score {
+    color: #5ef08a;
+    font-weight: 800;
+    font-size: 1.15rem;
+  }
+
+  .total-score {
+    color: #9db8dd;
+    font-size: 0.95rem;
+  }
+
+  .prize {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .prize-1 { color: #ffd700; }
+  .prize-2 { color: #c0c0c0; }
+  .prize-3 { color: #cd853f; }
+  .prize-4 { color: #7fb3ff; }
+
+  td.score-mini {
+    color: #cddcf1;
+    font-size: 0.92rem;
+  }
+
+  .empty-hint {
+    text-align: center;
+    color: #8aa5c9;
+    padding: 25px;
+    font-style: italic;
+  }
+
+  /* ===== Footer note ===== */
+  .note {
+    text-align: center;
+    color: #7d96b8;
+    font-size: 0.85rem;
+    margin-top: 25px;
+  }
+
+  .note span {
+    color: #ffb347;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 700px) {
+    header h1 { font-size: 1.5rem; }
+    header::before, header::after { display: none; }
+    .section-title { font-size: 1.1rem; }
+    th, td { padding: 9px 8px; }
+    input.score-input { width: 70px; padding: 8px 6px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>🤖 CUỘC THI ROBOTICS DBC </h1>
+    
+  </header>
+
+  <!-- ===== BẢNG NHẬP ĐIỂM ===== -->
+  <section class="card">
+    <div class="section-title">
+      <span class="icon">📝</span> BẢNG NHẬP ĐIỂM
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Đội thi</th>
+            <th>Lượt 1</th>
+            <th>Lượt 2</th>
+            <th>Lượt 3</th>
+            <th>🏆 Điểm cao nhất</th>
+          </tr>
+        </thead>
+        <tbody id="score-body">
+          <!-- Được tạo bởi JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-example" id="btn-example" type="button">🎲 Điền điểm mẫu</button>
+      <button class="btn btn-reset" id="btn-reset" type="button">🗑️ Xóa tất cả điểm</button>
+    </div>
+  </section>
+
+  <!-- ===== BẢNG XẾP HẠNG ===== -->
+  <section class="card">
+    <div class="section-title">
+      <span class="icon">🏅</span> BẢNG XẾP HẠNG
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Hạng</th>
+            <th>Đội thi</th>
+            <th>Lượt 1</th>
+            <th>Lượt 2</th>
+            <th>Lượt 3</th>
+            <th>Điểm cao nhất</th>
+            <th>Tổng điểm</th>
+            <th>Giải thưởng</th>
+          </tr>
+        </thead>
+        <tbody id="rank-body">
+          <!-- Được tạo bởi JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  
+  <p class="note">
+    🏆 Cơ cấu giải thưởng: <span>1 Giải Nhất - 1 Giải Nhì - 2 Giải Ba - 4 Giải Khuyến Khích</span>
+  </p>
+
+</div>
+
+<script>
+  // ===== CẤU HÌNH ĐỘI THI =====
+  // Sửa tên đội tại đây nếu cần (8 đội)
+  const TEAM_NAMES = [
+    "Tia sáng",
+    "Hương Ngải",
+    "Làng Ngái",
+    "Auto win",
+    "Miss",
+    "Team secret",
+    "Team Winner",
+    "Đại Đồng"
+  ];
+
+  const NUM_ROUNDS = 3;
+  const STORAGE_KEY = "robot-contest-scores-v1";
+
+  // ===== Trạng thái dữ liệu =====
+  // scores[teamIndex][roundIndex] = điểm số (số, -1 nếu chưa nhập)
+  let scores = [];
+
+  function createEmptyScores() {
+    return TEAM_NAMES.map(() => Array(NUM_ROUNDS).fill(-1));
+  }
+
+  // ===== Lưu / Đọc localStorage =====
+  function saveToStorage() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(scores));
+    } catch (e) {
+      console.warn("Không thể lưu localStorage:", e);
+    }
+  }
+
+  function loadFromStorage() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return createEmptyScores();
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return createEmptyScores();
+      // Chuẩn hóa: đảm bảo đủ 8 đội, mỗi đội đủ 3 lượt
+      return TEAM_NAMES.map((_, i) => {
+        const team = Array.isArray(parsed[i]) ? parsed[i] : [];
+        return Array.from({ length: NUM_ROUNDS }, (_, j) => {
+          const v = Number(team[j]);
+          return (Number.isFinite(v) && v >= 0) ? v : -1;
+        });
+      });
+    } catch (e) {
+      return createEmptyScores();
+    }
+  }
+
+  // ===== Tính toán xếp hạng =====
+  function getBestScore(teamScores) {
+    const valid = teamScores.filter(v => v >= 0);
+    return valid.length > 0 ? Math.max(...valid) : -1;
+  }
+
+  function getTotalScore(teamScores) {
+    return teamScores.filter(v => v >= 0).reduce((sum, v) => sum + v, 0);
+  }
+
+  function getRanking() {
+    const teams = TEAM_NAMES.map((name, i) => ({
+      index: i,
+      name: name,
+      scores: scores[i],
+      best: getBestScore(scores[i])
+    }));
+
+    teams.forEach(t => t.total = getTotalScore(t.scores));
+
+    teams.sort((a, b) => {
+      // Đội chưa có điểm nào xếp cuối
+      if (a.best === -1 && b.best === -1) return a.index - b.index;
+      if (a.best === -1) return 1;
+      if (b.best === -1) return -1;
+      // Điểm cao nhất giảm dần
+      if (b.best !== a.best) return b.best - a.best;
+      // Hòa: so tổng điểm phụ
+      if (b.total !== a.total) return b.total - a.total;
+      // Vẫn hòa: giữ thứ tự đội
+      return a.index - b.index;
+    });
+
+    return teams;
+  }
+
+  // ===== Render =====
+  function renderScoreTable() {
+    const tbody = document.getElementById("score-body");
+    tbody.innerHTML = "";
+
+    TEAM_NAMES.forEach((name, i) => {
+      const tr = document.createElement("tr");
+
+      const tdNum = document.createElement("td");
+      tdNum.textContent = i + 1;
+
+      const tdName = document.createElement("td");
+      tdName.className = "team-name";
+      tdName.textContent = name;
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdName);
+
+      for (let r = 0; r < NUM_ROUNDS; r++) {
+        const td = document.createElement("td");
+        const input = document.createElement("input");
+        input.type = "number";
+        input.min = "0";
+        input.step = "1";
+        input.className = "score-input";
+        input.dataset.team = i;
+        input.dataset.round = r;
+        input.placeholder = "—";
+        if (scores[i][r] >= 0) input.value = scores[i][r];
+        input.addEventListener("input", () => onScoreChange(i, r, input));
+        td.appendChild(input);
+        tr.appendChild(td);
+      }
+
+      const tdBest = document.createElement("td");
+      const best = getBestScore(scores[i]);
+      tdBest.className = "best-score";
+      tdBest.textContent = best >= 0 ? best : "—";
+      tr.appendChild(tdBest);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderRanking() {
+    const tbody = document.getElementById("rank-body");
+    tbody.innerHTML = "";
+
+    const ranking = getRanking();
+
+    // Kiểm tra nếu chưa có đội nào nhập điểm
+    const anyScore = ranking.some(t => t.best >= 0);
+    if (!anyScore) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 8;
+      td.className = "empty-hint";
+      td.textContent = "Chưa có điểm — hãy nhập điểm ở bảng trên để xếp hạng 🚀";
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+      return;
+    }
+
+    ranking.forEach((team, position) => {
+      const tr = document.createElement("tr");
+      tr.className = "rank-row";
+
+      const placeClass = "rank-" + (position + 1);
+      if (position < 4) tr.classList.add(placeClass);
+
+      // Cơ cấu giải thưởng: 1 Nhất, 1 Nhì, 2 Ba, 4 Khuyến khích
+      const prize = position === 0 ? "Giải Nhất"
+                  : position === 1 ? "Giải Nhì"
+                  : position < 4 ? "Giải Ba"
+                  : "Giải Khuyến Khích";
+      const prizeClass = position === 0 ? "prize-1"
+                       : position === 1 ? "prize-2"
+                       : position < 4 ? "prize-3"
+                       : "prize-4";
+
+      const tdRank = document.createElement("td");
+      tdRank.className = "rank";
+      const medals = ["🥇", "🥈", "🥉"];
+      tdRank.textContent = position < 3 ? medals[position] : (position + 1);
+      tr.appendChild(tdRank);
+
+      const tdName = document.createElement("td");
+      tdName.className = "team-name";
+      tdName.textContent = team.name;
+      tr.appendChild(tdName);
+
+      for (let r = 0; r < NUM_ROUNDS; r++) {
+        const td = document.createElement("td");
+        td.className = "score-mini";
+        td.textContent = team.scores[r] >= 0 ? team.scores[r] : "—";
+        tr.appendChild(td);
+      }
+
+      const tdBest = document.createElement("td");
+      tdBest.className = "best-score";
+      tdBest.textContent = team.best >= 0 ? team.best : "—";
+      tr.appendChild(tdBest);
+
+      const tdTotal = document.createElement("td");
+      tdTotal.className = "total-score";
+      tdTotal.textContent = team.total;
+      tr.appendChild(tdTotal);
+
+      const tdPrize = document.createElement("td");
+      tdPrize.className = "prize " + prizeClass;
+      tdPrize.textContent = prize;
+      tr.appendChild(tdPrize);
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderAll() {
+    renderScoreTable();
+    renderRanking();
+  }
+
+  // ===== Xử lý sự kiện =====
+  function onScoreChange(teamIdx, roundIdx, input) {
+    const raw = input.value.trim();
+    if (raw === "") {
+      scores[teamIdx][roundIdx] = -1;
+    } else {
+      const v = Number(raw);
+      if (v < 0) {
+        input.value = "";
+        scores[teamIdx][roundIdx] = -1;
+      } else {
+        // Giới hạn tối đa 999 để tránh số quá lớn
+        scores[teamIdx][roundIdx] = Math.min(Math.round(v), 999);
+        input.value = scores[teamIdx][roundIdx];
+      }
+    }
+    saveToStorage();
+    renderRanking();
+    // Cập nhật ô "Điểm cao nhất" tương ứng
+    const bestCell = input.closest("tr").querySelector(".best-score");
+    const best = getBestScore(scores[teamIdx]);
+    bestCell.textContent = best >= 0 ? best : "—";
+  }
+
+  // ===== Reset =====
+  function resetAll() {
+    if (confirm("Bạn có chắc muốn xóa TẤT CẢ điểm đã nhập không?")) {
+      scores = createEmptyScores();
+      saveToStorage();
+      renderAll();
+    }
+  }
+
+  // ===== Điền điểm mẫu (để kiểm tra) =====
+  function fillExample() {
+    const example = [
+      [85, 92, 88],   // Đội 1
+      [90, 95, 91],   // Đội 2
+      [78, 82, 95],   // Đội 3
+      [88, 88, 90],   // Đội 4
+      [95, 80, 76],   // Đội 5
+      [70, 75, 72],   // Đội 6
+      [99, 60, 65],   // Đội 7
+      [50, 55, 60]    // Đội 8
+    ];
+    if (confirm("Điền điểm mẫu để thử nghiệm? (Thao tác này sẽ GHI ĐÈ lên điểm hiện tại)")) {
+      scores = createEmptyScores();
+      for (let i = 0; i < TEAM_NAMES.length; i++) {
+        for (let r = 0; r < NUM_ROUNDS; r++) {
+          scores[i][r] = example[i][r];
+        }
+      }
+      saveToStorage();
+      renderAll();
+    }
+  }
+
+  // ===== Khởi tạo =====
+  scores = loadFromStorage();
+  renderAll();
+
+  document.getElementById("btn-reset").addEventListener("click", resetAll);
+  document.getElementById("btn-example").addEventListener("click", fillExample);
+</script>
+
+</body>
+</html>
