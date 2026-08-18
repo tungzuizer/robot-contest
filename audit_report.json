@@ -1,0 +1,579 @@
+{
+  "allConsoleErrors": [],
+  "allUncaughtExceptions": [],
+  "allNetworkErrors": [
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/subject-head?_rsc=Fq8Xc43v6jqAPDV-",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/subject-head?_rsc=7HNDwq_xc6pZBeI8",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "resultsByRole": {
+    "Hiệu trưởng": {
+      "consoleErrors": [],
+      "uncaughtErrors": [],
+      "networkErrors": [],
+      "visitedPages": [
+        {
+          "menuText": "PHAN HE I: QUAN TRI CHIEN LUOC",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "TONG QUAN",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "QUAN LY",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "HE THONG",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "HO SO SO SACH",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "TRO LY AI HIEU TRUONG",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "BAO MAT & KIEM SOAT",
+          "url": "https://school-management-red-one.vercel.app/admin/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Dang xuat",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Home",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "AI",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Quan ly",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "He thong",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Menu",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        }
+      ]
+    },
+    "Phó Hiệu trưởng": {
+      "consoleErrors": [],
+      "uncaughtErrors": [],
+      "networkErrors": [],
+      "visitedPages": [
+        {
+          "menuText": "TONG QUAN",
+          "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Dashboard",
+          "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "QUAN LY PHAN HIEU",
+          "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Lop hoc",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/vice-principal/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Hoc sinh",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Diem danh",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "HO SO SO SACH",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "So dau bai",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Giao an",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Canh bao",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Dang xuat",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Home",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Lop hoc",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Hoc sinh",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Ho so",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Menu",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        }
+      ]
+    },
+    "Giáo viên": {
+      "consoleErrors": [],
+      "uncaughtErrors": [],
+      "networkErrors": [],
+      "visitedPages": [
+        {
+          "menuText": "TONG QUAN",
+          "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/subject-head?_rsc=7HNDwq_xc6pZBeI8",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Dashboard",
+          "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "GVCN - CHU NHIEM",
+          "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "So chu nhiem",
+          "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Diem danh",
+          "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": [
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            },
+            {
+              "url": "https://school-management-red-one.vercel.app/teacher/dashboard",
+              "failure": "net::ERR_ABORTED"
+            }
+          ]
+        },
+        {
+          "menuText": "Bao cao ngay",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "GVBM - BO MON",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "So dau bai",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Giao an",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Nhap diem",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "TO CHUYEN MON",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Duyet giao an",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "CA NHAN",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Ho so",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Dang xuat",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Home",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "GVCN",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "GVBM",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Ho so",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        },
+        {
+          "menuText": "Menu",
+          "url": "https://school-management-red-one.vercel.app/login",
+          "consoleLogs": [],
+          "uncaughtErrors": [],
+          "networkErrors": []
+        }
+      ]
+    },
+    "Học sinh": {
+      "consoleErrors": [],
+      "uncaughtErrors": [],
+      "networkErrors": [],
+      "visitedPages": []
+    }
+  }
+}
